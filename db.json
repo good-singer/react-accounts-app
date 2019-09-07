@@ -1,0 +1,9 @@
+{
+  "records": [
+    { "id": "1", "date": "2019-4-23", "title": "title 1", "amount": 93 },
+    { "id": "2", "date": "2019-4-23", "title": "title 2", "amount": 55 },
+    { "id": "3", "date": "2019-4-23", "title": "title 3", "amount": 72 },
+    { "id": "4", "date": "2019-4-23", "title": "title 4", "amount": 0 },
+    { "id": "5", "date": "2019-4-23", "title": "title 5", "amount": 41 }
+  ]
+}
