@@ -14,18 +14,6 @@ class Records extends Component {
   }
 
   componentDidMount() {
-    /* jquery的获取数据方法
-    getJSON("https://5d51189981cbae00149a0f8d.mockapi.io/api/v1/records")
-      .then(
-        response => this.setState({
-          records: response,
-          isLoaded: true
-        }),
-        error => this.setState({
-          error,
-          isLoaded: false
-        })
-      ) */
 
     // axios获取数据
     RecordsAPI.getAll().then(
