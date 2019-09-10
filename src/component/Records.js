@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Record from './Record'
 // import {getJSON} from 'jquery'
 import * as RecordsAPI from '../utils/RecordsAPI'
+import RecordForm from './RecordForm'
 
 class Records extends Component {
   constructor() {
@@ -32,32 +33,37 @@ class Records extends Component {
 
   render() {
     const { error, isLoaded, records } = this.state;
+    let recordsComponent;
 
     if (error) {
       // return <div>Error:{error.responseText}</div>
-      return <div>Error:{error.message}</div>
+      recordsComponent = <div>Error:{error.message}</div>
     } else if (!isLoaded) {
-      return <div>Loading...</div>
+      recordsComponent = <div>Loading...</div>
     } else {
-      return (
-        <div>
-          <h2>Records</h2>
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Title</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              {records.map(record => <Record {...record} key={record.id} />)}
-
-            </tbody>
-          </table>
-        </div >
+      recordsComponent = (
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map(record => <Record {...record} key={record.id} />)}
+          </tbody>
+        </table>
       );
     }
+
+    return (
+      <div>
+        <h2>Records</h2>
+        <RecordForm />
+        {recordsComponent}
+      </div >
+    )
   }
 }
 
